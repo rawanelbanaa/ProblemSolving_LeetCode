@@ -5,15 +5,10 @@ class Solution:
         if N*M!=T: return mat
         
         output=[[0 for _ in range(c)] for _ in range(r)]
-        tmp = []
+        k= 0
         for i in range(M):
            for j in range(N):
-               tmp.append(mat[i][j])
-        k=0
-        
-        for i in range(r):
-           for j in range(c):
-               output[i][j]=tmp[k]
+               output[k//c][k%c]=mat[i][j]
                k+=1
             
         return output
