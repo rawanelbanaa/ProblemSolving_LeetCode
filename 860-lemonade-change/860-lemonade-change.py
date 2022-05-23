@@ -5,14 +5,12 @@ class Solution:
         for num in bills:
             if num != 5:
                 if num == 10:
-                    if five > 0:
-                        five -= 1; ten += 1
-                    else: return False
-                elif ten > 0 and five > 0:
+                    five -= 1; ten += 1
+                elif ten > 0:
                     five -= 1;ten -= 1
-                elif five >= 3:
+                else:
                     five -=3
-                else: return False
+                if five < 0: return False
             else:
                 five += 1
 
