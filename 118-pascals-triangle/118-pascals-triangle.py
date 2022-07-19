@@ -1,9 +1,9 @@
 class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
         result = [[1]]
-        countOfRows = range(numRows - 1)
+        # countOfRows = range(numRows - 1)
         
-        for i in countOfRows:
+        for i in range(numRows - 1):
             temp = [0] + result[-1] + [0]
             row = []
             for x in range(len(result[-1]) + 1):
