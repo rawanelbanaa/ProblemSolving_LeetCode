@@ -1,10 +1,4 @@
 class Solution:
     def reorderedPowerOf2(self, n: int) -> bool:
-        Total = set(itertools.permutations(str(n)))
-        for x in Total:
-            if x[0] == '0':
-                continue
-            num = int(''.join(x))
-            if round(log(num, 2),9).is_integer():
-                return True
-        return False
+         return any(cand[0] != '0' and bin(int("".join(cand))).count('1') == 1
+                   for cand in itertools.permutations(str(n)))
