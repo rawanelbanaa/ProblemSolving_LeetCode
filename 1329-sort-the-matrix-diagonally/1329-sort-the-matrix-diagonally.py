@@ -1,18 +1,18 @@
 import numpy as np
 class Solution:
     def diagonalSort(self, mat: List[List[int]]) -> List[List[int]]:
-        diagonals = collections.defaultdict(list)
-
-        for x, row in enumerate(mat):
-            for y, num in enumerate(row):
-                diagonals[x - y].append(num)
-        
-        for diagonal in diagonals.values():
-            diagonal.sort(reverse=True)
-        
         m, n = len(mat), len(mat[0])
         for x in range(m):
+            mat[x] = mat[x][::-1]
+        d = defaultdict(list)
+        for x in range(m):
             for y in range(n):
-                mat[x][y] = diagonals[x - y].pop()
-        
+                d[x+y].append(mat[x][y])
+        for x in d:
+            d[x].sort()
+        for x in range(m):
+            for y in range(n):
+                mat[x][y] = d[x+y].pop(0)
+        for x in range(m):
+            mat[x] = mat[x][::-1]
         return mat
