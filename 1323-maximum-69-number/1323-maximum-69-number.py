@@ -1,15 +1,14 @@
 class Solution:
     def maximum69Number (self, num: int) -> int:
-        return int(str(num).replace('6', '9', 1))        
+        # return int(str(num).replace('6', '9', 1))        
+
         
-        
-#         number = str(num)
-#         length_num = len(number)
-#         for x in range(0,length_num+1):
-#             if number[x] != 9:
-#                 number[x] == 9
-#                 break
-#             else:
-#                 continue
+        num_list = list(str(num))
+        for x in range(len(num_list)):
+            if num_list[x] == '6':
+                num_list[x] = '9'
+                break
+            else:
+                continue
                 
-#         return number
+        return int("".join(num_list))
