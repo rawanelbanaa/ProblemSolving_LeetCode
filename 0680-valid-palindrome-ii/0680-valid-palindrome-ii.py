@@ -4,9 +4,9 @@ class Solution:
         j = len(s)-1
         while i<j:
             if s[i]!=s[j]:
-                left_remove=s[i+1:j+1]
-                right_remove=s[i:j]
-                return left_remove==left_remove[-1::-1] or right_remove==right_remove[-1::-1]
+                leftPointer=s[i+1:j+1]
+                rightPointer=s[i:j]
+                return leftPointer == leftPointer[-1::-1] or rightPointer == rightPointer[-1::-1]
             else:
                 i+=1
                 j-=1
